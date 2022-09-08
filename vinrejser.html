@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #holder {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+        border-radius: 50%;
+      }
+      article {
+        border: 10px solid yellow;
+        padding: 1em;
+      }
+      img {
+        max-width: 100%;
+        object-fit: contain;
+      }
+      #holder :hover {
+        border-color: black;
+      }
+      header {
+        margin-bottom: 1rem;
+      }
+      .valgt {
+        background-color: blue;
+      }
+      #popup {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: #000000aa;
+
+        justify-content: center;
+        align-items: center;
+        display: none;
+        overflow: scroll;
+      }
+      #popup article {
+        width: 80%;
+        background-color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Alle</h1>
+      <nav>
+        <button data-lande="alle" class="valgt">alle</button>
+        <button data-lande="Italien">Italien</button>
+        <button data-lande="Spanien">Spanien</button>
+        <button data-lande="Frankrig">Frankrig</button>
+      </nav>
+    </header>
+    <main id="holder"></main>
+
+    <template>
+      <article>
+        <img src="" alt="" />
+        <h2 class="områder"></h2>
+        <h2 class="lande"></h2>
+        <p class="beskrivelse"></p>
+      </article>
+    </template>
+
+    <div id="popup">
+      <article>
+        <img src="" alt="" />
+        <h2></h2>
+        <p></p>
+      </article>
+    </div>
+    <script>
+      let personer;
+      let filter = "alle";
+      const header = document.querySelector("header h1");
+      const filterKnapper = document.querySelectorAll("nav button");
+      filterKnapper.forEach((knap) => knap.addEventListener("click", filterPersoner));
+      function filterPersoner() {
+        filter = this.dataset.lande;
+        vis();
+        header.textContent = this.textContent;
+        document.querySelector(".valgt").classList.remove("valgt");
+        this.classList.add("valgt");
+      }
+
+      const endpoint = "https://vinrejser-fb8f.restdb.io/rest/lande";
+      const mereinfo = {
+        headers: {
+          "x-apikey": "63188c9b0b7c265b2a0e7866",
+        },
+      };
+      async function hentData() {
+        const response = await fetch(endpoint, mereinfo);
+        personer = await response.json();
+        vis();
+      }
+
+      function vis() {
+        const holder = document.querySelector("#holder");
+        const skabelon = document.querySelector("template").content;
+        holder.textContent = "";
+        console.log(personer);
+        personer.forEach((person) => {
+          const klon = skabelon.cloneNode(true);
+          if (filter == person.lande || filter == "alle") {
+            klon.querySelector(".områder").textContent = person.områder;
+            klon.querySelector("article").addEventListener("click", () => visPerson(person));
+            // klon.querySelector(".efternavn").textContent = person.efternavn;
+            klon.querySelector(".lande").textContent = person.lande;
+            //   klon.querySelector(".titel").textContent = person.titel;
+            klon.querySelector(".beskrivelse").textContent = person.beskrivelse;
+            holder.appendChild(klon);
+          }
+        });
+      }
+      function visPerson(personData) {
+        console.log("personData");
+        const popup = document.querySelector("#popup");
+        popup.querySelector("h2").textContent = personData.områder;
+        popup.querySelector("p").textContent = personData.beskrivelse;
+        popup.querySelector("img").src = "faces/" + personData.billede;
+        popup.style.display = "flex";
+        popup.addEventListener("click", () => (popup.style.display = "none"));
+      }
+      hentData();
+    </script>
+  </body>
+</html>
