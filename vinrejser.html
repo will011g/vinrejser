@@ -30,8 +30,11 @@
         display: flex;
         justify-content: space-evenly;
       }
+      nav :hover {
+        background-color: #b3a37d;
+      }
       .valgt {
-        background-color: blue;
+        background-color: #b3a37d;
       }
       #popup {
         position: fixed;
@@ -45,6 +48,7 @@
         align-items: center;
         display: none;
         overflow: scroll;
+        text-align: center;
       }
       #popup article {
         width: 80%;
@@ -60,12 +64,21 @@
       }
       h1,
       h2,
-      h3 {
+      h3,
+      nav {
         font-display: auto;
         font-style: normal;
         font-weight: 300;
         font-stretch: normal;
         font-family: "garamond-premier-pro", serif;
+      }
+      button {
+        width: 5rem;
+        height: 2rem;
+        border: none;
+        background-color: #670505;
+        color: white;
+        border-radius: 5px;
       }
       @media screen and (max-width: 750px) {
         button {
