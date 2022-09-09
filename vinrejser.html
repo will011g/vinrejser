@@ -5,26 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.typekit.net/rjh5jnn.css" />
     <style>
       #holder {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1em;
         border-radius: 50%;
       }
       article {
-        border: 10px solid yellow;
         padding: 1em;
       }
       img {
-        max-width: 100%;
-        object-fit: contain;
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 16/9;
       }
       #holder :hover {
         border-color: black;
       }
-      header {
+      nav {
+        margin-top: 1rem;
         margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-evenly;
       }
       .valgt {
         background-color: blue;
@@ -47,26 +51,50 @@
         background-color: white;
         border: none;
       }
+      p {
+        font-display: auto;
+        font-style: normal;
+        font-weight: 300;
+        font-stretch: normal;
+        font-family: "brandon-grotesque", sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-display: auto;
+        font-style: normal;
+        font-weight: 300;
+        font-stretch: normal;
+        font-family: "garamond-premier-pro", serif;
+      }
+      @media screen and (max-width: 750px) {
+        button {
+          display: block;
+          margin-bottom: 1em;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
-      <h1>Alle</h1>
       <nav>
         <button data-lande="alle" class="valgt">alle</button>
         <button data-lande="Italien">Italien</button>
         <button data-lande="Spanien">Spanien</button>
         <button data-lande="Frankrig">Frankrig</button>
       </nav>
+      <h1>alle</h1>
     </header>
+
     <main id="holder"></main>
 
     <template>
       <article>
         <img src="" alt="" />
         <h2 class="områder"></h2>
-        <h2 class="lande"></h2>
+        <h3 class="lande"></h3>
         <p class="beskrivelse"></p>
+        <p class="pris"></p>
       </article>
     </template>
 
@@ -75,15 +103,16 @@
         <img src="" alt="" />
         <h2></h2>
         <p></p>
+        <p class="pris"></p>
       </article>
     </div>
     <script>
-      let personer;
+      let lande;
       let filter = "alle";
       const header = document.querySelector("header h1");
       const filterKnapper = document.querySelectorAll("nav button");
-      filterKnapper.forEach((knap) => knap.addEventListener("click", filterPersoner));
-      function filterPersoner() {
+      filterKnapper.forEach((knap) => knap.addEventListener("click", filterlande));
+      function filterlande() {
         filter = this.dataset.lande;
         vis();
         header.textContent = this.textContent;
@@ -99,7 +128,7 @@
       };
       async function hentData() {
         const response = await fetch(endpoint, mereinfo);
-        personer = await response.json();
+        lande = await response.json();
         vis();
       }
 
@@ -107,26 +136,29 @@
         const holder = document.querySelector("#holder");
         const skabelon = document.querySelector("template").content;
         holder.textContent = "";
-        console.log(personer);
-        personer.forEach((person) => {
+        console.log(lande);
+        lande.forEach((land) => {
           const klon = skabelon.cloneNode(true);
-          if (filter == person.lande || filter == "alle") {
-            klon.querySelector(".områder").textContent = person.områder;
-            klon.querySelector("article").addEventListener("click", () => visPerson(person));
-            // klon.querySelector(".efternavn").textContent = person.efternavn;
-            klon.querySelector(".lande").textContent = person.lande;
-            //   klon.querySelector(".titel").textContent = person.titel;
-            klon.querySelector(".beskrivelse").textContent = person.beskrivelse;
+          if (filter == land.lande || filter == "alle") {
+            klon.querySelector(".områder").textContent = land.områder;
+            klon.querySelector("article").addEventListener("click", () => visland(land));
+            klon.querySelector(".pris").textContent = land.pris + ".-";
+            klon.querySelector("img").src = "billeder/" + land.billedtekst + ".jpg";
+
+            klon.querySelector(".lande").textContent = land.lande;
+            //   klon.querySelector(".titel").textContent = land.titel;
+            klon.querySelector(".beskrivelse").textContent = land.beskrivelse;
             holder.appendChild(klon);
           }
         });
       }
-      function visPerson(personData) {
-        console.log("personData");
+      function visland(landData) {
+        console.log("landData");
         const popup = document.querySelector("#popup");
-        popup.querySelector("h2").textContent = personData.områder;
-        popup.querySelector("p").textContent = personData.beskrivelse;
-        popup.querySelector("img").src = "faces/" + personData.billede;
+        popup.querySelector("h2").textContent = landData.områder;
+        popup.querySelector("p").textContent = landData.beskrivelse;
+        popup.querySelector(".pris").textContent = landData.pris;
+        popup.querySelector("img").src = "billeder/" + landData.billedtekst + ".jpg";
         popup.style.display = "flex";
         popup.addEventListener("click", () => (popup.style.display = "none"));
       }
