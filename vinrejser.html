@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="https://use.typekit.net/rjh5jnn.css" />
+    <link rel="stylesheet" href="burger.css" />
     <style>
       #holder {
         display: grid;
@@ -24,13 +25,13 @@
       #holder :hover {
         border-color: black;
       }
-      nav {
+      section {
         margin-top: 1rem;
         margin-bottom: 1rem;
         display: flex;
         justify-content: space-evenly;
       }
-      nav :hover {
+      section :hover {
         background-color: #b3a37d;
       }
       .valgt {
@@ -90,15 +91,29 @@
   </head>
   <body>
     <header>
-      <nav>
-        <button data-lande="alle" class="valgt">alle</button>
-        <button data-lande="Italien">Italien</button>
-        <button data-lande="Spanien">Spanien</button>
-        <button data-lande="Frankrig">Frankrig</button>
+      <nav class="navbar">
+        <div class="logo"></div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="" class="nav-link">Rejser</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Forside</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
-      <h1>alle</h1>
     </header>
-
+    <section>
+      <button data-lande="alle" class="valgt">alle</button>
+      <button data-lande="Italien">Italien</button>
+      <button data-lande="Spanien">Spanien</button>
+      <button data-lande="Frankrig">Frankrig</button>
+    </section>
     <main id="holder"></main>
 
     <template>
@@ -122,13 +137,12 @@
     <script>
       let lande;
       let filter = "alle";
-      const header = document.querySelector("header h1");
-      const filterKnapper = document.querySelectorAll("nav button");
+      const filterKnapper = document.querySelectorAll("section button");
       filterKnapper.forEach((knap) => knap.addEventListener("click", filterlande));
       function filterlande() {
         filter = this.dataset.lande;
         vis();
-        header.textContent = this.textContent;
+
         document.querySelector(".valgt").classList.remove("valgt");
         this.classList.add("valgt");
       }
@@ -177,5 +191,6 @@
       }
       hentData();
     </script>
+    <script src="burger.js"></script>
   </body>
 </html>
