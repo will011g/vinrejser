@@ -51,6 +51,14 @@ a {
   display: none;
   cursor: pointer;
 }
+.filter_knap {
+  display: none;
+  cursor: pointer;
+}
+
+section.active .filter_gone {
+  display: block;
+}
 
 .bar {
   display: block;
@@ -67,6 +75,24 @@ a {
   .hamburger {
     display: block;
   }
+  .filter_knap {
+    display: block;
+  }
+
+  .filter_gone {
+    display: none;
+  }
+
+  section {
+    transition: 2s;
+    display: block;
+  }
+
+  section.active {
+    background: var(--highlight);
+    flex-direction: column;
+  }
+
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
@@ -106,6 +132,6 @@ a {
   }
   header.active {
     background-color: var(--highlight);
-    transition: var(--transition_1s);
+    transition: 1s;
   }
 }

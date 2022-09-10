@@ -1,5 +1,7 @@
 // Variabler til burgermenu
 const hamburger = document.querySelector(".hamburger");
+const filter_burger_menu = document.querySelector("section");
+
 const navMenu = document.querySelector(".nav-menu");
 const header = document.querySelector("header");
 
@@ -8,6 +10,11 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
   header.classList.toggle("active");
+});
+
+filter_burger_menu.addEventListener("click", () => {
+  filter_burger_menu.classList.toggle("active");
+  console.log("Filter Baby!");
 });
 
 // Fjerner menuen når du klikker på et link
