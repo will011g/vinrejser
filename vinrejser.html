@@ -26,13 +26,20 @@
         border-color: black;
       }
       section {
+        display: flex;
         margin-top: 1rem;
         margin-bottom: 1rem;
         display: flex;
         justify-content: space-evenly;
       }
-      section :hover {
-        background-color: #b3a37d;
+
+      section a {
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        border: none;
+        background-color: #670505;
+        color: white;
+        border-radius: 5px;
       }
       .valgt {
         background-color: #b3a37d;
@@ -86,6 +93,16 @@
           display: block;
           margin-bottom: 1em;
         }
+
+        section {
+          display: flex;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          display: flex;
+          justify-content: start;
+          padding-inline-start: 1rem;
+          padding-block-end: 1rem;
+        }
       }
     </style>
   </head>
@@ -110,7 +127,7 @@
     </header>
     <section>
       <div class="filter_knap">
-        <a><p>Filter</p></a>
+        <a>Filter</a>
       </div>
       <button class="filter_gone" data-lande="alle" class="valgt">alle</button>
       <button class="filter_gone" data-lande="Italien">Italien</button>

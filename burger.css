@@ -54,6 +54,7 @@ a {
 .filter_knap {
   display: none;
   cursor: pointer;
+  padding-block: 1rem;
 }
 
 section.active .filter_gone {
@@ -84,13 +85,17 @@ section.active .filter_gone {
   }
 
   section {
-    transition: 2s;
+    transition: 0.5s;
     display: block;
   }
 
   section.active {
     background: var(--highlight);
     flex-direction: column;
+  }
+  section.active a {
+    background-color: transparent;
+    color: black;
   }
 
   .hamburger.active .bar:nth-child(2) {
