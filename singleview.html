@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="singleview.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+      <article>
+        <img src="" alt="" />
+        <h2 class="områder"></h2>
+        <h3 class="lande"></h3>
+        <p class="beskrivelse"></p>
+        <p class="pris"></p>
+      </article>
+    
+</body>
+</html>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      console.log(id);
+      let land;
+
+      const url = `https://vinrejser-fb8f.restdb.io/rest/lande/${id}`;
+      const key = "63188c9b0b7c265b2a0e7866";
+
+      async function hentData() {
+        console.log("hentData");
+        const respons = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": key,
+          },
+        });
+        land = await respons.json();
+        console.log({ land });
+        visLand();
+      }
+
+      function visLand() {
+        console.log(land);
+        document.querySelector(".områder").textContent = land.områder;
+        document.querySelector(".beskrivelse").textContent = land.beskrivelse;
+        document.querySelector(".pris").textContent = land.pris;
+        document.querySelector("article").addEventListener("click", () => visLand(land));
+        document.querySelector("img").src = "billeder/" + land.billedtekst + ".jpg";
+      }
+
+      function goBack() {
+        history.back();
+      }
+
+      hentData();
+    </script>
+  </body>
+</html>

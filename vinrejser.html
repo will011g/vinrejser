@@ -191,26 +191,21 @@
           const klon = skabelon.cloneNode(true);
           if (filter == land.lande || filter == "alle") {
             klon.querySelector(".områder").textContent = land.områder;
-            klon.querySelector("article").addEventListener("click", () => visland(land));
             klon.querySelector(".pris").textContent = land.pris + ".-";
             klon.querySelector("img").src = "billeder/" + land.billedtekst + ".jpg";
 
             klon.querySelector(".lande").textContent = land.lande;
             //   klon.querySelector(".titel").textContent = land.titel;
             klon.querySelector(".beskrivelse").textContent = land.beskrivelse;
+            klon.querySelector("article").addEventListener("click", () => visLand(land));
             holder.appendChild(klon);
           }
         });
       }
-      function visland(landData) {
-        console.log("landData");
-        const popup = document.querySelector("#popup");
-        popup.querySelector("h2").textContent = landData.områder;
-        popup.querySelector("p").textContent = landData.beskrivelse;
-        popup.querySelector(".pris").textContent = landData.pris;
-        popup.querySelector("img").src = "billeder/" + landData.billedtekst + ".jpg";
-        popup.style.display = "flex";
-        popup.addEventListener("click", () => (popup.style.display = "none"));
+
+      function visLand(land) {
+        console.log(land._id);
+        window.location.href = `singleview.html?id=${land._id}`;
       }
       hentData();
     </script>
