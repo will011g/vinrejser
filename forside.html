@@ -10,8 +10,8 @@
   </head>
   <body>
     <header>
+      <img class="logo" src="logo.svg" alt="logo" />
       <nav class="navbar">
-        <div class="logo"></div>
         <ul class="nav-menu">
           <li class="nav-item">
             <a href="" class="nav-link">Rejser</a>
@@ -31,8 +31,23 @@
       <h1>Velkommen til Vin & Rejs</h1>
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis voluptatibus perferendis omnis id, harum magni ut optio laborum qui dicta sequi totam laudantium autem sunt nulla similique. Laboriosam, libero ipsum.</p>
       <div class="splash">
-        <a class="splash_knap" href="vinrejser.html">Se vores rejser</a>
+        <a id="hover" class="splash_knap" href="vinrejser.html">Se vores rejser</a>
+        <img id="blur" class="splash_img" src="billeder/splash_2.webp" alt="" />
       </div>
     </main>
+    <script src="burger.js"></script>
   </body>
 </html>
+
+<script>
+  document.getElementById("hover").addEventListener("mouseover", mouseOver);
+  document.getElementById("hover").addEventListener("mouseout", mouseOut);
+
+  function mouseOver() {
+    document.getElementById("blur").style.webkitFilter = "blur(3px)";
+    document.getElementById("blur").style.webkitTransition = "0.5s";
+  }
+  function mouseOut() {
+    document.getElementById("blur").style.webkitFilter = "blur(0px)";
+  }
+</script>
