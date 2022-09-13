@@ -27,38 +27,43 @@
         </div>
       </nav>
     </header>
-    <div><h1>LAND</h1></div>
+    <div class="land_overskrift_snglview"><h1 class="lande"></h1></div>
     <main>
       <article><img class="omraade_img_left" src="" alt="" /></article>
-      <article>
+      <article class="omraade_txt_right">
         <h2 class="områder"></h2>
         <h3 class="lande"></h3>
         <p class="beskrivelse"></p>
-        <p class="pris"></p>
       </article>
       <article><img class="omraade_img_right" src="billeder/andalusien.jpg" alt="" /></article>
-      <article>
+      <article class="omraade_txt_left">
         <h2 class="områder"></h2>
         <h3 class="lande"></h3>
         <p class="beskrivelse">HER SKAL DER INDSÆTTES NOGET TEKST</p>
-        <p class="pris"></p>
       </article>
-
+      <div class="pris_koeb">
+        <div class="filter_knap">
+          <h3 class="pris"></h3></div>
+          <button>Bestil rejse</button>
+        </div>
+        
+    
       <div class="vinkort_1_container">
         <h2>Få en forsmag på hvad der venter dig</h2>
-      <section class="vinkort_1">
-        <img class="vin_1" src="billeder/vinflaske.png" alt="vinflaske" />
-        <div class="farve">
-          <div class="tekst">
-            <h2>Vinflaske</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <section class="vinkort_1">
+          <img class="vin_1" src="billeder/vinflaske.png" alt="vinflaske" />
+          <div class="farve">
+            <div class="tekst">
+              <h2>Vinflaske</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="pris_knap">
+              <p><strong>Pris: 399 kr.</strong></p>
+              <button>SE MERE</button>
+            </div>
           </div>
-          <div class="pris_knap">
-            <p><strong>Pris:</strong></p>
-            <button>SE MERE</button>
-          </div>
-        </div>
-      </section>
+        </section>
+        
 
       <section class="vinkort_2">
         <img class="vin_1" src="billeder/vinflaske.png" alt="vinflaske" />
@@ -68,7 +73,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
           </div>
           <div class="pris_knap">
-            <p><strong>Pris:</strong></p>
+            <p><strong>Pris: 399 kr.</strong></p>
             <button>SE MERE</button>
           </div>
         </div>
@@ -81,13 +86,14 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
           </div>
           <div class="pris_knap">
-            <p><strong>Pris:</strong></p>
+            <p><strong>Pris: 399 kr.</strong></p>
             <button>SE MERE</button>
           </div>
         </div>
       </section>
     </div>
-    </main>
+    
+  </main>
 </body>
 </html>
     <script>
@@ -115,9 +121,10 @@
 
       function visLand() {
         console.log(land);
+        document.querySelector(".lande").textContent = land.områder;
         document.querySelector(".områder").textContent = land.områder;
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
-        document.querySelector(".pris").textContent = land.pris;
+        document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
         document.querySelector("article").addEventListener("click", () => visLand(land));
         document.querySelector("img").src = "billeder/" + land.billedtekst + ".jpg";
       }
