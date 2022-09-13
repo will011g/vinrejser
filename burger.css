@@ -1,0 +1,154 @@
+/* BURGER MENU */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --primaer-graa: #f7f7f7;
+  --primaer-roed: #6f1b1b;
+  --highlight: #f2efe7;
+}
+
+.logo {
+  margin-inline-end: auto;
+}
+.logo img {
+  text-align: center;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+header {
+  background-color: var(--primaer-graa);
+}
+
+li {
+  list-style: none;
+  margin: 1rem;
+}
+a {
+  display: flex;
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "brandon-grotesque";
+  width: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navbar {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+.filter_knap {
+  display: none;
+  cursor: pointer;
+  padding-block: 1rem;
+}
+
+section.active .filter_gone {
+  display: block;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  background-color: var(--primaer-roed);
+  border-radius: 10px;
+}
+
+@media (max-width: 750px) {
+  .hamburger {
+    display: block;
+  }
+  .filter_knap {
+    display: block;
+  }
+
+  .filter_gone {
+    display: none;
+  }
+
+  section {
+    transition: 0.3s;
+    display: block;
+  }
+
+  section.active {
+    background: var(--highlight);
+    flex-direction: column;
+  }
+  section.active a {
+    background-color: transparent;
+    color: black;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .navbar {
+    color: var(--primaer-graa);
+  }
+
+  .filter_pil {
+    align-items: center;
+  }
+
+  section.active svg {
+    transition: 0.3s;
+    transform: rotate(90deg);
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 100px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  nav-item {
+    margin: 16px 0;
+  }
+  .nav-menu.active {
+    bottom: 0;
+    left: 0;
+    background-color: var(--highlight);
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+  }
+  header.active {
+    background-color: var(--highlight);
+    transition: 1s;
+  }
+}

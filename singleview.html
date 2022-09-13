@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.typekit.net/rjh5jnn.css" />
+    <link rel="stylesheet" href="singleview.css" />
+    <title>Singleview</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"></div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="" class="nav-link">Rejser</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Forside</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <div class="land_overskrift_snglview"><h1 class="lande"></h1></div>
+    <main>
+      <article><img class="omraade_img_left" src="" alt="" /></article>
+      <article class="omraade_txt_right">
+        <h2 class="områder"></h2>
+        <h3 class="lande"></h3>
+        <p class="beskrivelse"></p>
+      </article>
+      <article><img class="omraade_img_right" src="billeder/andalusien.jpg" alt="" /></article>
+      <article class="omraade_txt_left">
+        <h2 class="områder"></h2>
+        <h3 class="lande"></h3>
+        <p class="beskrivelse">HER SKAL DER INDSÆTTES NOGET TEKST</p>
+      </article>
+      <div class="pris_koeb">
+        <div class="filter_knap">
+          <h3 class="pris"></h3></div>
+          <button>Bestil rejse</button>
+        </div>
+        
+    
+      <div class="vinkort_1_container">
+        <h2>Få en forsmag på hvad der venter dig</h2>
+        <section class="vinkort_1">
+          <img class="vin_1" src="billeder/rose_vin.png" alt="vinflaske" />
+          <div class="farve">
+            <div class="tekst">
+              <h2>Vinflaske</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="pris_knap">
+              <p><strong>Pris: 399 kr.</strong></p>
+              <button>SE MERE</button>
+            </div>
+          </div>
+        </section>
+        
+
+      <section class="vinkort_2">
+        <img class="vin_1" src="billeder/red_vin.png" alt="vinflaske" />
+        <div class="farve">
+          <div class="tekst">
+            <h2>Vinflaske</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+          <div class="pris_knap">
+            <p><strong>Pris: 399 kr.</strong></p>
+            <button>SE MERE</button>
+          </div>
+        </div>
+      </section>
+      <section class="vinkort_3">
+        <img class="vin_1" src="billeder/white_vin.png" alt="vinflaske" />
+        <div class="farve">
+          <div class="tekst">
+            <h2>Vinflaske</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+          </div>
+          <div class="pris_knap">
+            <p><strong>Pris: 399 kr.</strong></p>
+            <button>SE MERE</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+  </main>
+</body>
+</html>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      console.log(id);
+      let land;
+
+      const url = `https://vinrejser-fb8f.restdb.io/rest/lande/${id}`;
+      const key = "63188c9b0b7c265b2a0e7866";
+
+      async function hentData() {
+        console.log("hentData");
+        const respons = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": key,
+          },
+        });
+        land = await respons.json();
+        console.log({ land });
+        visLand();
+      }
+
+      function visLand() {
+        console.log(land);
+        document.querySelector(".lande").textContent = land.områder;
+        document.querySelector(".områder").textContent = land.områder;
+        document.querySelector(".beskrivelse").textContent = land.beskrivelse;
+        document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
+        document.querySelector("article").addEventListener("click", () => visLand(land));
+        document.querySelector("img").src = "billeder/" + land.billedtekst + ".jpg";
+      }
+
+      function goBack() {
+        history.back();
+      }
+
+      hentData();
+    </script>
+  </body>
+</html>

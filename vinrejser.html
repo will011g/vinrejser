@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="https://use.typekit.net/rjh5jnn.css" />
+    <link rel="stylesheet" href="burger.css" />
     <style>
+      main {
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+
       #holder {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -24,14 +30,23 @@
       #holder :hover {
         border-color: black;
       }
-      nav {
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
         margin-top: 1rem;
         margin-bottom: 1rem;
         display: flex;
         justify-content: space-evenly;
       }
-      nav :hover {
-        background-color: #b3a37d;
+
+      section a {
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        border: none;
+        background-color: #670505;
+        color: white;
+        border-radius: 5px;
       }
       .valgt {
         background-color: #b3a37d;
@@ -85,20 +100,50 @@
           display: block;
           margin-bottom: 1em;
         }
+
+        section {
+          display: flex;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          display: flex;
+          justify-content: start;
+          padding-inline-start: 1rem;
+          padding-block-end: 1rem;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <nav>
-        <button data-lande="alle" class="valgt">alle</button>
-        <button data-lande="Italien">Italien</button>
-        <button data-lande="Spanien">Spanien</button>
-        <button data-lande="Frankrig">Frankrig</button>
+      <nav class="navbar">
+        <div class="logo"></div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="" class="nav-link">Rejser</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Forside</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
-      <h1>alle</h1>
     </header>
+    <section>
+      <div class="filter_knap">
+        <a
+          >Filter <svg class="filter_pil" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m268 112l144 144l-144 144m124-144H100" /></svg
+        ></a>
+      </div>
 
+      <button class="filter_gone" data-lande="alle" class="valgt">Alle</button>
+      <button class="filter_gone" data-lande="Italien">Italien</button>
+      <button class="filter_gone" data-lande="Spanien">Spanien</button>
+      <button class="filter_gone" data-lande="Frankrig">Frankrig</button>
+    </section>
     <main id="holder"></main>
 
     <template>
@@ -123,13 +168,12 @@
     <script>
       let lande;
       let filter = "alle";
-      const header = document.querySelector("header h1");
-      const filterKnapper = document.querySelectorAll("nav button");
+      const filterKnapper = document.querySelectorAll("section button");
       filterKnapper.forEach((knap) => knap.addEventListener("click", filterlande));
       function filterlande() {
         filter = this.dataset.lande;
         vis();
-        header.textContent = this.textContent;
+
         document.querySelector(".valgt").classList.remove("valgt");
         this.classList.add("valgt");
       }
@@ -155,17 +199,22 @@
           const klon = skabelon.cloneNode(true);
           if (filter == land.lande || filter == "alle") {
             klon.querySelector(".områder").textContent = land.områder;
-            klon.querySelector("article").addEventListener("click", () => visland(land));
             klon.querySelector(".pris").textContent = land.pris + ".-";
             klon.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
 
             klon.querySelector(".lande").textContent = land.lande;
             //   klon.querySelector(".titel").textContent = land.titel;
             klon.querySelector(".beskrivelse").textContent = land.beskrivelse;
+            klon.querySelector("article").addEventListener("click", () => visLand(land));
             holder.appendChild(klon);
           }
         });
       }
+
+      function visLand(land) {
+        console.log(land._id);
+        window.location.href = `singleview.html?id=${land._id}`;
+
       function visland(landData) {
         console.log("landData");
         const popup = document.querySelector("#popup");
@@ -178,5 +227,6 @@
       }
       hentData();
     </script>
+    <script src="burger.js"></script>
   </body>
 </html>
