@@ -179,7 +179,13 @@
         display: flex;
         flex-direction: column;
         padding: 1em;
+        border-radius: 10px;
       }
+      .rejser {
+        box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+          5px 5px 9px rgba(94, 104, 121, 0.3);
+      }
+
       .article-img {
         width: 100%;
         object-fit: cover;
@@ -351,7 +357,7 @@
       <main id="holder"></main>
 
       <template>
-        <article>
+        <article class="rejser">
           <img class="article-img" src="" alt="" />
           <h2 class="områder"></h2>
           <h3 class="lande"></h3>
