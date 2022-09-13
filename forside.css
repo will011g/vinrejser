@@ -56,7 +56,7 @@ img {
   object-fit: contain;
 }
 
-button {
+.splash_knap {
   padding-block: 2rem;
   padding-inline: 4rem;
   border-style: none;
