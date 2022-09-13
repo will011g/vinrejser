@@ -15,6 +15,12 @@
         --primaer-graa: #f7f7f7;
         --primaer-roed: #f2efe7;
         --highlight: #6f1b1b;
+        --space-xs: 1rem;
+        --space-s: 2rem;
+        --space-m: 3rem;
+        --space-l: 4rem;
+        --space-xl: 5rem;
+        --space-xxl: 10rem;
       }
 
       .logo {
@@ -198,6 +204,7 @@
       .container {
         max-width: 1200px;
         margin: 0 auto;
+        padding-block: var(--space-l);
       }
       section {
         display: flex;
@@ -279,12 +286,31 @@
       footer {
         display: flex;
         justify-content: space-evenly;
+        padding-block: var(--space-xl);
+      }
+      .adress {
+        display: flex;
+      }
+      .phone {
+        display: flex;
+      }
+      .mail {
+        display: flex;
       }
 
       @media screen and (max-width: 750px) {
         button {
           display: block;
           margin-bottom: 1em;
+        }
+        footer {
+          display: flex;
+          flex-direction: column;
+          padding-inline-start: 1rem;
+          padding-block-end: 1rem;
+        }
+        .footer-block {
+          padding-top: 1rem;
         }
 
         section {
@@ -382,8 +408,8 @@
       <div class="footer-block">
         <h2>Nyhedsbrev</h2>
         <p>
-          Tilmeld dig vores nyhedsbrev og vær blandt de første til at få nyt
-          angående vores rejser.
+          Tilmeld dig og vær blandt de første til at få nyt angående vores
+          rejser.
         </p>
         <form>
           <label for="E-mail adresse"></label><br />
@@ -392,6 +418,7 @@
             type="email"
             name="E-mail"
             aria-label="E-mail adresse"
+            style="height: 28px"
           />
           <input class="button" type="button" value="Tilmeld" />
         </form>
@@ -399,9 +426,9 @@
 
       <div class="footer-block">
         <h2>Følg os</h2>
-        <!-- <img width="30px" src="" alt="" />
-      <img width="30px" src="" alt="" />
-      <img width="30px" src="" alt="" /> -->
+        <img src="instagram.svg" style="width: 25px" alt="instagram ikon" />
+        <img src="facebook.svg" style="width: 25px" alt="facebook ikon" />
+        <img src="youtube.svg" style="width: 25px" alt="youtube ikon" />
       </div>
 
       <div class="footer-block">
@@ -414,12 +441,18 @@
 
       <div class="footer-block">
         <h2>Kontakt info</h2>
-        <!-- <img src="" alt="" /> -->
-        <p>Adresse</p>
-        <!-- <img src="" alt="" /> -->
-        <p>Telefon</p>
-        <!-- <img src="" alt="" /> -->
-        <p>Mail</p>
+        <div class="adress">
+          <img src="location.svg" style="width: 25px" alt="" />
+          <p>Adresse</p>
+        </div>
+        <div class="phone">
+          <img src="phone.svg" style="width: 25px" alt="" />
+          <p>Telefon</p>
+        </div>
+        <div class="mail">
+          <img src="mail.svg" style="width: 25px" alt="" />
+          <p>Mail</p>
+        </div>
       </div>
     </footer>
 
