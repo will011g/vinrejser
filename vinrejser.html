@@ -215,15 +215,16 @@
         console.log(land._id);
         window.location.href = `singleview.html?id=${land._id}`;
 
-      function visland(landData) {
-        console.log("landData");
-        const popup = document.querySelector("#popup");
-        popup.querySelector("h2").textContent = landData.områder;
-        popup.querySelector("p").textContent = landData.beskrivelse;
-        popup.querySelector(".pris").textContent = landData.pris;
-        popup.querySelector("img").src = "billeder/" + landData.billedtekst + ".webp";
-        popup.style.display = "flex";
-        popup.addEventListener("click", () => (popup.style.display = "none"));
+        function visland(landData) {
+          console.log("landData");
+          const popup = document.querySelector("#popup");
+          popup.querySelector("h2").textContent = landData.områder;
+          popup.querySelector("p").textContent = landData.beskrivelse;
+          popup.querySelector(".pris").textContent = landData.pris;
+          popup.querySelector("img").src = "billeder/" + landData.billedtekst + ".webp";
+          popup.style.display = "flex";
+          popup.addEventListener("click", () => (popup.style.display = "none"));
+        }
       }
       hentData();
     </script>
