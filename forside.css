@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+}
+.splash {
+  display: grid;
+  max-width: 1200px;
+  grid-column: 1;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(10, 64.7px);
+  background-image: url(billeder/splash_2.webp);
+}
+
+h1 {
+  padding-block-start: 2rem;
+  padding-block-end: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  padding-block-start: 1rem;
+  padding-block-end: 2rem;
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-family: "brandon-grotesque", sans-serif;
+  max-width: 60ch;
+
+  justify-self: center;
+}
+
+h1,
+h2,
+h3,
+nav {
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-family: "garamond-premier-pro", serif;
+}
+
+img {
+  grid-column: 1 / 6;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+
+button {
+  padding-block: 2rem;
+  padding-inline: 4rem;
+  border-style: none;
+  border-radius: 10px;
+  background-color: #6f1b1b;
+  display: flex;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "brandon-grotesque";
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  grid-column: 3 / 4;
+  grid-row: 5 / 7;
+  align-self: center;
+  justify-self: center;
+}
