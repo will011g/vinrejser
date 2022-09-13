@@ -13,8 +13,8 @@
       }
       html {
         --primaer-graa: #f7f7f7;
-        --primaer-roed: #6f1b1b;
-        --highlight: #f2efe7;
+        --primaer-roed: #f2efe7;
+        --highlight: #6f1b1b;
       }
 
       .logo {
@@ -163,6 +163,12 @@
         }
       }
 
+      .prices {
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+      }
+
       #holder {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -170,6 +176,8 @@
         border-radius: 50%;
       }
       article {
+        display: flex;
+        flex-direction: column;
         padding: 1em;
       }
       .article-img {
@@ -180,14 +188,20 @@
       #holder :hover {
         border-color: black;
       }
-      section {
+
+      .container {
         max-width: 1200px;
         margin: 0 auto;
+      }
+      section {
         display: flex;
         margin-top: 1rem;
         margin-bottom: 1rem;
         display: flex;
         justify-content: space-evenly;
+      }
+      .intro {
+        text-align: center;
       }
 
       section a {
@@ -199,7 +213,8 @@
         border-radius: 5px;
       }
       .valgt {
-        background-color: #b3a37d;
+        background-color: var(--highlight);
+        color: white;
       }
       #popup {
         position: fixed;
@@ -238,6 +253,15 @@
         font-family: "garamond-premier-pro", serif;
       }
       button {
+        width: 5rem;
+        height: 2rem;
+        background-color: white;
+        border: 2px solid var(--highlight);
+        color: black;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .button {
         width: 5rem;
         height: 2rem;
         border: none;
@@ -288,56 +312,82 @@
         </div>
       </nav>
     </header>
-    <h1>Vinrejser Europa rundt</h1>
-    <p>
-      Vores vinrejser er for dig som elsker at opleve vinens verden sammen med
-      andre vinkendere der deler samme passion for vin – For god vin smager
-      bedre i godt selvskab.
-    </p>
+    <div class="container">
+      <article class="intro">
+        <h1 class="overskrift">Vinrejser Europa rundt</h1>
+        <p class="intro">
+          Vores vinrejser er for dig som elsker at opleve vinens verden sammen
+          med andre vinkendere der deler samme passion for vin – For god vin
+          smager bedre i godt selskab.
+        </p>
+      </article>
 
-    <section>
-      <div class="filter_knap">
-        <a
-          >Filter
-          <svg class="filter_pil" width="20" height="20" viewBox="0 0 512 512">
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m268 112l144 144l-144 144m124-144H100" /></svg
-        ></a>
+      <section>
+        <div class="filter_knap">
+          <a
+            >Filter
+            <svg
+              class="filter_pil"
+              width="20"
+              height="20"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="48"
+                d="m268 112l144 144l-144 144m124-144H100"
+              /></svg
+          ></a>
+        </div>
+
+        <button class="filter_gone valgt" data-lande="alle">Alle</button>
+        <button class="filter_gone" data-lande="Italien">Italien</button>
+        <button class="filter_gone" data-lande="Spanien">Spanien</button>
+        <button class="filter_gone" data-lande="Frankrig">Frankrig</button>
+      </section>
+      <main id="holder"></main>
+
+      <template>
+        <article>
+          <img class="article-img" src="" alt="" />
+          <h2 class="områder"></h2>
+          <h3 class="lande"></h3>
+          <p class="beskrivelse"></p>
+          <div class="prices">
+            <p class="pris"></p>
+            <button>></button>
+          </div>
+        </article>
+      </template>
+
+      <div id="popup">
+        <article>
+          <img class="article-img" src="" alt="" />
+          <h2></h2>
+          <p></p>
+          <p class="pris"></p>
+        </article>
       </div>
-
-      <button class="filter_gone" data-lande="alle" class="valgt">Alle</button>
-      <button class="filter_gone" data-lande="Italien">Italien</button>
-      <button class="filter_gone" data-lande="Spanien">Spanien</button>
-      <button class="filter_gone" data-lande="Frankrig">Frankrig</button>
-    </section>
-    <main id="holder"></main>
-
-    <template>
-      <article>
-        <img class="article-img" src="" alt="" />
-        <h2 class="områder"></h2>
-        <h3 class="lande"></h3>
-        <p class="beskrivelse"></p>
-        <p class="pris"></p>
-      </article>
-    </template>
-
-    <div id="popup">
-      <article>
-        <img class="article-img" src="" alt="" />
-        <h2></h2>
-        <p></p>
-        <p class="pris"></p>
-      </article>
     </div>
-
     <footer>
       <div class="footer-block">
         <h2>Nyhedsbrev</h2>
-        <p>Tilmeld dig vores nyhedsbrev og vær blandt de første til at få nyt angående vores rejser.</p>
+        <p>
+          Tilmeld dig vores nyhedsbrev og vær blandt de første til at få nyt
+          angående vores rejser.
+        </p>
         <form>
           <label for="E-mail adresse"></label><br />
-          <input placeholder="E-mail" type="email" name="E-mail" aria-label="E-mail adresse" />
-          <input type="button" value="Tilmeld" />
+          <input
+            placeholder="E-mail"
+            type="email"
+            name="E-mail"
+            aria-label="E-mail adresse"
+          />
+          <input class="button" type="button" value="Tilmeld" />
         </form>
       </div>
 
@@ -371,13 +421,14 @@
       let lande;
       let filter = "alle";
       const filterKnapper = document.querySelectorAll("section button");
-      filterKnapper.forEach((knap) => knap.addEventListener("click", filterlande));
+      filterKnapper.forEach((knap) =>
+        knap.addEventListener("click", filterlande)
+      );
       function filterlande() {
         filter = this.dataset.lande;
-        vis();
-
         document.querySelector(".valgt").classList.remove("valgt");
         this.classList.add("valgt");
+        vis();
       }
 
       const endpoint = "https://vinrejser-fb8f.restdb.io/rest/lande";
@@ -401,13 +452,17 @@
           const klon = skabelon.cloneNode(true);
           if (filter == land.lande || filter == "alle") {
             klon.querySelector(".områder").textContent = land.områder;
-            klon.querySelector(".pris").textContent = land.pris + ".-";
-            klon.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
+            klon.querySelector(".pris").textContent =
+              "Pris: " + land.pris + " kr.";
+            klon.querySelector("img").src =
+              "billeder/" + land.billedtekst + ".webp";
 
             klon.querySelector(".lande").textContent = land.lande;
             //   klon.querySelector(".titel").textContent = land.titel;
             klon.querySelector(".beskrivelse").textContent = land.beskrivelse;
-            klon.querySelector("article").addEventListener("click", () => visLand(land));
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visLand(land));
             holder.appendChild(klon);
           }
         });
@@ -423,7 +478,8 @@
           popup.querySelector("h2").textContent = landData.områder;
           popup.querySelector("p").textContent = landData.beskrivelse;
           popup.querySelector(".pris").textContent = landData.pris;
-          popup.querySelector("img").src = "billeder/" + landData.billedtekst + ".webp";
+          popup.querySelector("img").src =
+            "billeder/" + landData.billedtekst + ".webp";
           popup.style.display = "flex";
           popup.addEventListener("click", () => (popup.style.display = "none"));
         }
