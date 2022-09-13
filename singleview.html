@@ -35,7 +35,7 @@
         <h3 class="lande"></h3>
         <p class="beskrivelse"></p>
       </article>
-      <article><img class="omraade_img_right" src="billeder/andalusien.jpg" alt="" /></article>
+      <article><img class="omraade_img_right" src="billeder/andalusien.webp" alt="" /></article>
       <article class="omraade_txt_left">
         <h2 class="områder"></h2>
         <h3 class="lande"></h3>
@@ -126,7 +126,7 @@
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
         document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
         document.querySelector("article").addEventListener("click", () => visLand(land));
-        document.querySelector("img").src = "billeder/" + land.billedtekst + ".jpg";
+        document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
       }
 
       function goBack() {
