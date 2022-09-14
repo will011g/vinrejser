@@ -1,16 +1,9 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
 main {
-  /* margin: 0 auto; */
-  max-width: 1200px;
-  display: grid;
+  margin: 0 auto;
+  /* max-width: 1200px; */
 }
-
-/* html {
+html {
+  /* --primaer-graa: #f7f7f7; */
   --primaer-roed: #6f1b1b;
   --highlight: #f2efe7;
   --h1-size: clamp(3.5rem, 1.25rem + 4vw, 4.5rem);
@@ -25,19 +18,34 @@ main {
   --space-l: 4rem;
   --space-xl: 5rem;
   --space-xxl: 10rem;
-} */
+}
+h1 {
+  font-size: var(--h1-size);
+}
+h2 {
+  font-size: var(--h2-size);
+}
+h3 {
+  font-size: var(--h3-size);
+}
 
-/* .logo {
+p {
+  font-size: var(--p-size);
+}
+
+.logo {
   width: 250px;
-} */
-/* header {
+  justify-content: center;
+}
+
+header {
   display: flex;
   background-color: var(--highlight);
   justify-content: center;
   text-align: center;
   position: relative;
   height: 150px;
-} */
+}
 
 /* BURGER MENU */
 * {
@@ -57,9 +65,7 @@ a {
   font-family: "brandon-grotesque";
   justify-content: space-evenly;
   align-items: center;
-  z-index: 1;
 }
-
 .navbar {
   min-height: 100px;
   display: flex;
@@ -88,31 +94,10 @@ a {
 
 section.active .filter_gone {
   display: block;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--primaer-roed);
 }
-
-/* footer {
-  display: flex;
-  justify-content: space-evenly;
-  padding-block: var(--space-xl);
-  background-color: var(--highlight);
-}
-.adress {
-  display: flex;
-}
-.phone {
-  display: flex;
-}
-.mail {
-  display: flex;
-}
-.button {
-  width: 5rem;
-  height: 2rem;
-  border: none;
-  background-color: #670505;
-  color: white;
-  border-radius: 5px;
-} */
 
 .bar {
   display: block;
@@ -124,10 +109,33 @@ section.active .filter_gone {
   background-color: var(--primaer-roed);
   border-radius: 10px;
 }
-/* Lægger splash billede i grid på forsiden */
-.splash_img {
-  object-fit: contain;
-  grid-row: 1 / 11;
+
+footer {
+  display: flex;
+  background-color: var(--highlight);
+  justify-content: space-evenly;
+  padding-block: var(--space-xl);
+}
+.adress {
+  display: flex;
+}
+.phone {
+  display: flex;
+}
+.mail {
+  display: flex;
+}
+
+@media screen and (max-width: 750px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 1rem;
+    padding-block-end: 1rem;
+  }
+  .footer-block {
+    padding-top: 1rem;
+  }
 }
 
 @media (max-width: 750px) {
@@ -152,11 +160,12 @@ section.active .filter_gone {
     flex-direction: column;
   }
   section.active a {
-    background-color: transparent;
     color: black;
+    display: block;
+    background-color: transparent;
   }
 
-  /* .hamburger.active .bar:nth-child(2) {
+  .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
   .hamburger.active .bar:nth-child(1) {
@@ -171,6 +180,7 @@ section.active .filter_gone {
 
   .filter_pil {
     align-items: center;
+    padding-inline-start: var(--space-xs);
   }
 
   section.active svg {
@@ -205,95 +215,5 @@ section.active .filter_gone {
   header.active {
     background-color: var(--highlight);
     transition: 1s;
-  } */
-}
-.splash {
-  display: grid;
-  max-width: 1200px;
-  grid-column: 1;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(10, 64.7px);
-  overflow: hidden;
-}
-
-h1 {
-  padding-block-start: 2rem;
-  padding-block-end: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-p {
-  /* display: flex;
-  padding-block-start: 1rem;
-  padding-block-end: 2rem; */
-  justify-content: center;
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: normal;
-  font-family: "brandon-grotesque", sans-serif;
-  max-width: 60ch;
-  justify-self: center;
-}
-
-h1,
-h2,
-h3,
-nav {
-  font-style: normal;
-  font-weight: 300;
-  font-stretch: normal;
-  font-family: "garamond-premier-pro", serif;
-}
-
-.splash_img {
-  grid-column: 1 / 6;
-  aspect-ratio: 16/9;
-  object-fit: contain;
-}
-
-.splash_knap {
-  transition: 0.3s;
-  padding-block: 2rem;
-  padding-inline: 4rem;
-  border-style: none;
-  border-radius: 10px;
-  background-color: #6f1b1b;
-  display: flex;
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-family: "brandon-grotesque";
-  justify-content: space-evenly;
-  align-items: center;
-  cursor: pointer;
-  grid-column: 3 / 4;
-  grid-row: 5 / 7;
-  align-self: center;
-  justify-self: center;
-}
-
-.splash_knap:hover {
-  transition: 0.3s ease-in-out;
-
-  background-color: transparent;
-  border-style: solid;
-  border-color: var(--primaer-roed);
-  border-width: 2px;
-}
-
-@media screen and (max-width: 750px) {
-  .splash_knap {
-    grid-column: 2 / 5;
-  }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    padding-inline-start: 1rem;
-    padding-block-end: 1rem;
-  }
-  .footer-block {
-    padding-top: 1rem;
   }
 }
