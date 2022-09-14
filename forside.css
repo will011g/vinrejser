@@ -12,8 +12,20 @@ main {
 
 html {
   --primaer-graa: #f7f7f7;
-  --primaer-roed: #f2efe7;
-  --highlight: #6f1b1b;
+  --primaer-roed: #6f1b1b;
+  --highlight: #f2efe7;
+  --h1-size: clamp(3.5rem, 1.25rem + 4vw, 4.5rem);
+  --h2-size: clamp(0.5rem, 1.75rem + 1.3333vw, 2rem);
+  --h3-size: clamp(2rem, 0.75rem + 1.3333vw, 2.3rem);
+  --h4-size: clamp(1.3rem, 2rem + 0vw, 1rem);
+  --p-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
+  --a-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
+  --space-xs: 1rem;
+  --space-s: 2rem;
+  --space-m: 3rem;
+  --space-l: 4rem;
+  --space-xl: 5rem;
+  --space-xxl: 10rem;
 }
 
 .logo {
@@ -79,12 +91,6 @@ section.active .filter_gone {
   display: block;
 }
 
-/* Lægger splash billede i grid på forsiden */
-.splash_img {
-  object-fit: contain;
-  grid-row: 1 / 11;
-}
-
 .bar {
   display: block;
   width: 25px;
@@ -94,6 +100,11 @@ section.active .filter_gone {
   -webkit-transition: all 0.3s ease-in-out;
   background-color: var(--primaer-roed);
   border-radius: 10px;
+}
+/* Lægger splash billede i grid på forsiden */
+.splash_img {
+  object-fit: contain;
+  grid-row: 1 / 11;
 }
 
 @media (max-width: 750px) {
@@ -147,7 +158,7 @@ section.active .filter_gone {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 100px;
+    top: 150px;
     gap: 10px;
     flex-direction: column;
     align-items: center;
@@ -246,4 +257,10 @@ img {
   border-style: solid;
   border-color: var(--primaer-roed);
   border-width: 2px;
+}
+
+@media screen and (max-width: 750px) {
+  .splash_knap {
+    grid-column: 2 / 5;
+  }
 }

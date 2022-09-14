@@ -13,8 +13,14 @@
       }
       html {
         --primaer-graa: #f7f7f7;
-        --primaer-roed: #f2efe7;
-        --highlight: #6f1b1b;
+        --primaer-roed: #6f1b1b;
+        --highlight: #f2efe7;
+        --h1-size: clamp(3.5rem, 1.25rem + 4vw, 4.5rem);
+        --h2-size: clamp(0.5rem, 1.75rem + 1.3333vw, 2rem);
+        --h3-size: clamp(2rem, 0.75rem + 1.3333vw, 2.3rem);
+        --h4-size: clamp(1.3rem, 2rem + 0vw, 1rem);
+        --p-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
+        --a-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
         --space-xs: 1rem;
         --space-s: 2rem;
         --space-m: 3rem;
@@ -27,10 +33,14 @@
         width: 250px;
         justify-content: center;
       }
+
       header {
         display: flex;
         background-color: var(--primaer-graa);
         justify-content: center;
+        text-align: center;
+        position: relative;
+        height: 150px;
       }
 
       /* BURGER MENU */
@@ -52,12 +62,15 @@
         justify-content: space-evenly;
         align-items: center;
       }
-
       .navbar {
         min-height: 100px;
         display: flex;
         align-items: center;
         padding: 0 24px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 150px;
       }
 
       .nav-menu {
@@ -77,6 +90,9 @@
 
       section.active .filter_gone {
         display: block;
+        border-style: solid;
+        border-width: 2px;
+        border-color: var(--primaer-roed);
       }
 
       .bar {
@@ -112,8 +128,9 @@
           flex-direction: column;
         }
         section.active a {
-          background-color: transparent;
           color: black;
+          display: block;
+          background-color: transparent;
         }
 
         .hamburger.active .bar:nth-child(2) {
@@ -131,6 +148,7 @@
 
         .filter_pil {
           align-items: center;
+          padding-inline-start: var(--space-xs);
         }
 
         section.active svg {
@@ -141,7 +159,7 @@
         .nav-menu {
           position: fixed;
           left: -100%;
-          top: 100px;
+          top: 150px;
           gap: 10px;
           flex-direction: column;
           align-items: center;
@@ -267,7 +285,7 @@
       button {
         width: 5rem;
         height: 2rem;
-        background-color: white;
+        background-color: transparent;
         border: 2px solid var(--highlight);
         color: black;
         border-radius: 5px;
@@ -321,19 +339,25 @@
           padding-inline-start: 1rem;
           padding-block-end: 1rem;
         }
+
+        .valgt {
+          background-color: var(--highlight);
+          color: white;
+          background-color: var(--primaer-roed);
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <img class="logo" src="logo.svg" alt="logo" />
+      <a href="forside.html"><img class="logo" src="logo.svg" alt="logo" /></a>
       <nav class="navbar">
         <ul class="nav-menu">
           <li class="nav-item">
-            <a href="" class="nav-link">Rejser</a>
+            <a href="vinrejser.html" class="nav-link">Rejser</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Forside</a>
+            <a href="forside.html" class="nav-link">Forside</a>
           </li>
         </ul>
         <div class="hamburger">
