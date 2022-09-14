@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="logo.svg" alt="logo" />
+      <a href="forside.html"><img class="logo" src="logo.svg" alt="logo" /></a>
       <nav class="navbar">
         <ul class="nav-menu">
           <li class="nav-item">
@@ -49,5 +49,6 @@
   }
   function mouseOut() {
     document.getElementById("blur").style.webkitFilter = "blur(0px)";
+    document.getElementById("blur").style.webkitTransition = "0.5s";
   }
 </script>

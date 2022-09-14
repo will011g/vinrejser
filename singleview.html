@@ -10,14 +10,14 @@
   </head>
   <body>
     <header>
+      <a href="forside.html"><div class="logo"></div></a>
       <nav class="navbar">
-        <div class="logo"></div>
         <ul class="nav-menu">
           <li class="nav-item">
-            <a href="" class="nav-link">Rejser</a>
+            <a href="vinrejser.html" class="nav-link">Rejser</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Forside</a>
+            <a href="forside.html" class="nav-link">Forside</a>
           </li>
         </ul>
         <div class="hamburger">
@@ -121,13 +121,13 @@
 
       function visLand() {
         console.log(land);
+        document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
         document.querySelector(".lande").textContent = land.områder;
         document.querySelector(".områder").textContent = land.områder;
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
         document.querySelector(".intro").textContent = land.intro;
         document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
         document.querySelector("article").addEventListener("click", () => visLand(land));
-        document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
       }
 
       function goBack() {
@@ -136,5 +136,6 @@
 
       hentData();
     </script>
+    <script src="burger.js"></script>
   </body>
 </html>
