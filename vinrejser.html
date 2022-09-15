@@ -207,6 +207,7 @@
       .rejser {
         box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
         cursor: pointer;
+        height: 30rem;
       }
 
       .article-img {
@@ -232,6 +233,10 @@
       }
       .intro {
         text-align: center;
+      }
+
+      .intro p {
+        align-self: center;
       }
 
       section a {
@@ -280,6 +285,7 @@
         font-family: "garamond-premier-pro", serif;
       }
       button {
+        transition: 0.3s;
         width: 5rem;
         height: 2rem;
         background-color: transparent;
@@ -288,6 +294,12 @@
         border-radius: 5px;
         cursor: pointer;
       }
+      button:hover {
+        transition: 0.3s;
+        background-color: var(--primaer-roed);
+        color: white;
+      }
+
       .button {
         width: 5rem;
         height: 2rem;
@@ -368,7 +380,7 @@
     <div class="container">
       <article class="intro">
         <h1 class="overskrift">Vinrejser Europa rundt</h1>
-        <p class="intro">Vores vinrejser er for dig som elsker at opleve vinens verden sammen med andre vinkendere der deler samme passion for vin – For god vin smager bedre i godt selskab.</p>
+        <p>Vores vinrejser er for dig som elsker at opleve vinens verden sammen med andre vinkendere der deler samme passion for vin – For god vin smager bedre i godt selskab.</p>
       </article>
 
       <section>
