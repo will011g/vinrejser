@@ -10,7 +10,7 @@ html {
   --h2-size: clamp(0.5rem, 1.75rem + 1.3333vw, 2rem);
   --h3-size: clamp(2rem, 0.75rem + 1.3333vw, 2.3rem);
   --h4-size: clamp(1.3rem, 2rem + 0vw, 1rem);
-  --p-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
+  --p-size: clamp(1.2rem, 0.75rem + 1.3333vw, 1.1rem);
   --a-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
   --space-xs: 1rem;
   --space-s: 2rem;
@@ -21,15 +21,31 @@ html {
 }
 h1 {
   font-size: var(--h1-size);
+  padding-block-start: 2rem;
+  padding-block-end: 1rem;
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-family: "garamond-premier-pro", serif;
 }
 h2 {
   font-size: var(--h2-size);
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-family: "garamond-premier-pro", serif;
 }
 h3 {
   font-size: var(--h3-size);
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
 }
 
 p {
+  font-family: "brandon-grotesque";
   font-size: var(--p-size);
   max-width: 60ch;
 }

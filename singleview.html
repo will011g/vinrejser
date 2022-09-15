@@ -32,14 +32,14 @@
     <main>
       <article><img class="omraade_img_left" src="" alt="" /></article>
       <article class="omraade_txt_right">
-        <h2 class="områder"></h2>
-        <h3 class="lande"></h3>
+        
+        <h3>Kort om området</h3>
         <p class="beskrivelse"></p>
       </article>
       <article><img class="omraade_img_right" src="billeder/andalusien.webp" alt="" /></article>
       <article class="omraade_txt_left">
-        <h2 class="områder"></h2>
-        <h3 class="lande"></h3>
+        
+        <h3>Det byder rejsen på</h3>
         <p class="intro"></p>
       </article>
       <div class="pris_koeb">
@@ -175,7 +175,7 @@
         console.log(land);
         document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
         document.querySelector(".lande").textContent = land.områder;
-        document.querySelector(".områder").textContent = land.områder;
+        
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
         document.querySelector(".intro").textContent = land.intro;
         document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
