@@ -78,6 +78,7 @@ section.active .filter_gone {
 .splash_img {
   object-fit: contain;
   grid-row: 1 / 11;
+  margin-top: var(--space-s);
 }
 
 @media (max-width: 750px) {
