@@ -114,7 +114,8 @@ footer {
   display: flex;
   background-color: var(--highlight);
   justify-content: space-evenly;
-  padding-block: var(--space-xl);
+  margin-block: var(--space-xl);
+  padding-block: var(--space-m);
 }
 .adress {
   display: flex;
