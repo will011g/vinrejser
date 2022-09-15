@@ -34,6 +34,11 @@ p {
   max-width: 60ch;
 }
 
+.pris {
+  font-size: var(--h4-size);
+  font-weight: bold;
+}
+
 .logo {
   width: 250px;
   justify-content: center;
