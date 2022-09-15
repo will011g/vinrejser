@@ -161,6 +161,15 @@ section.active .filter_gone {
   border-radius: 10px;
 }
 
+.button {
+  width: 5rem;
+  height: 2rem;
+  border: none;
+  background-color: #670505;
+  color: white;
+  border-radius: 5px;
+}
+
 footer {
   display: flex;
   background-color: var(--highlight);
