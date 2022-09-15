@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.typekit.net/rjh5jnn.css" />
+    <link rel="icon" type="image/x-icon" href="logo.svg" />
     <link rel="stylesheet" href="singleview.css" />
     <link rel="stylesheet" href="generel.css" />
-    <title>Singleview</title>
+    <!-- Lande kommer ind som titel på hver enkelt singleview side -->
+    <title class="lande"></title>
   </head>
   <body>
     <header>
@@ -28,7 +30,7 @@
         </div>
       </nav>
     </header>
-    <div class="land_overskrift_snglview"><h1 class="lande"></h1></div>
+    <div class="land_overskrift_snglview"><h1 class="land"></h1></div>
     <div class="tilbage_container">
       <button class="tilbage_knap"
         >
@@ -193,15 +195,16 @@
       function visLand() {
         console.log(land);
         document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
+        <!-- Henter samme info om land til to forskellige klasser, så det fremgår som titel og h1 -->
         document.querySelector(".lande").textContent = land.områder;
-        
+        document.querySelector(".land").textContent = land.områder;
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
         document.querySelector(".intro").textContent = land.intro;
         document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
         document.querySelector("article").addEventListener("click", () => visLand(land));
         document.querySelector(".tilbage_knap").addEventListener("click", goBack);
       }
-
+<!-- Kører tilbage funktion på tilbage knap -->
       function goBack() {
         history.back();
       }
