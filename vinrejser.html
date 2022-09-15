@@ -17,7 +17,7 @@
         --highlight: #f2efe7;
         --h1-size: clamp(3.5rem, 1.25rem + 4vw, 4.5rem);
         --h2-size: clamp(2.5rem, 1.75rem + 1.3333vw, 2rem);
-        --h3-size: clamp(2rem, 0.75rem + 1.3333vw, 0.5rem);
+        --h3-size: clamp(1.5rem, 0.75rem + 1.3333vw, 0.5rem);
         --h4-size: clamp(1.3rem, 2rem + 0vw, 1rem);
         --p-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
         --a-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
@@ -72,7 +72,6 @@
       .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding-block: var(--space-l);
       }
       section {
         display: flex;
@@ -82,6 +81,7 @@
         justify-content: space-evenly;
       }
       .intro {
+        padding:0;
         margin-block-end: var(--space-l);
       }
       .intro h1 {
@@ -136,6 +136,12 @@
         color: black;
         border-radius: 5px;
         cursor: pointer;
+        font-family: "brandon-grotesque";
+        font-size: var(--p-size);
+        align-content: center;
+        display: flex;
+justify-content: center;
+align-items: center;
       }
       button:hover {
         transition: 0.3s;
@@ -195,7 +201,7 @@
     </header>
     <div class="container">
       <article class="intro">
-        <h1 class="overskrift">Vinrejser Europa rundt</h1>
+        <h1>Vinrejser Europa rundt</h1>
         <p>Vores vinrejser er for dig som elsker at opleve vinens verden sammen med andre vinkendere der deler samme passion for vin – For god vin smager bedre i godt selskab.</p>
       </article>
 
@@ -223,7 +229,20 @@
           <p class="beskrivelse"></p>
           <div class="prices">
             <p class="pris"></p>
-            <button>></button>
+            <button>
+              <svg
+              width="20"
+              height="20"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="48"
+                d="m268 112l144 144l-144 144m124-144H100"
+              /></svg</button>
           </div>
         </article>
       </template>
