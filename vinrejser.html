@@ -205,7 +205,8 @@
         border-radius: 10px;
       }
       .rejser {
-        box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
+        box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+          5px 5px 9px rgba(94, 104, 121, 0.3);
         cursor: pointer;
         height: 35rem;
         margin-block-end: var(--space-l);
@@ -343,12 +344,12 @@
 
         section {
           display: flex;
-          margin-top: 1rem;
-          margin-bottom: 1rem;
+          margin-top: var(--space-m);
+          margin-bottom: var(--space-s);
           display: flex;
           justify-content: start;
-          padding-inline-start: 1rem;
-          padding-block-end: 1rem;
+          /* padding-inline-start: 1rem;
+          padding-block-end: 1rem; */
         }
 
         .valgt {
@@ -381,15 +382,31 @@
     <div class="container">
       <article class="intro">
         <h1 class="overskrift">Vinrejser Europa rundt</h1>
-        <p>Vores vinrejser er for dig som elsker at opleve vinens verden sammen med andre vinkendere der deler samme passion for vin – For god vin smager bedre i godt selskab.</p>
+        <p>
+          Vores vinrejser er for dig som elsker at opleve vinens verden sammen
+          med andre vinkendere der deler samme passion for vin – For god vin
+          smager bedre i godt selskab.
+        </p>
       </article>
 
       <section>
         <div class="filter_knap">
           <a
             >Filter
-            <svg class="filter_pil" width="20" height="20" viewBox="0 0 512 512">
-              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m268 112l144 144l-144 144m124-144H100" /></svg
+            <svg
+              class="filter_pil"
+              width="20"
+              height="20"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="48"
+                d="m268 112l144 144l-144 144m124-144H100"
+              /></svg
           ></a>
         </div>
 
@@ -425,10 +442,19 @@
     <footer>
       <div class="footer-block">
         <h2>Nyhedsbrev</h2>
-        <p>Tilmeld dig og vær blandt de første til at få nyt angående vores rejser.</p>
+        <p>
+          Tilmeld dig og vær blandt de første til at få nyt angående vores
+          rejser.
+        </p>
         <form>
           <label for="E-mail adresse"></label><br />
-          <input placeholder="E-mail" type="email" name="E-mail" aria-label="E-mail adresse" style="height: 28px" />
+          <input
+            placeholder="E-mail"
+            type="email"
+            name="E-mail"
+            aria-label="E-mail adresse"
+            style="height: 28px"
+          />
           <input class="button" type="button" value="Tilmeld" />
         </form>
       </div>
@@ -469,7 +495,9 @@
       let lande;
       let filter = "alle";
       const filterKnapper = document.querySelectorAll("section button");
-      filterKnapper.forEach((knap) => knap.addEventListener("click", filterlande));
+      filterKnapper.forEach((knap) =>
+        knap.addEventListener("click", filterlande)
+      );
       function filterlande() {
         filter = this.dataset.lande;
         document.querySelector(".valgt").classList.remove("valgt");
@@ -498,13 +526,17 @@
           const klon = skabelon.cloneNode(true);
           if (filter == land.lande || filter == "alle") {
             klon.querySelector(".områder").textContent = land.områder;
-            klon.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
-            klon.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
+            klon.querySelector(".pris").textContent =
+              "Pris: " + land.pris + " kr.";
+            klon.querySelector("img").src =
+              "billeder/" + land.billedtekst + ".webp";
 
             klon.querySelector(".lande").textContent = land.lande;
             //   klon.querySelector(".titel").textContent = land.titel;
             klon.querySelector(".beskrivelse").textContent = land.kort;
-            klon.querySelector("article").addEventListener("click", () => visLand(land));
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visLand(land));
             holder.appendChild(klon);
           }
         });
@@ -520,7 +552,8 @@
           popup.querySelector("h2").textContent = landData.områder;
           popup.querySelector("p").textContent = landData.beskrivelse;
           popup.querySelector(".pris").textContent = landData.pris;
-          popup.querySelector("img").src = "billeder/" + landData.billedtekst + ".webp";
+          popup.querySelector("img").src =
+            "billeder/" + landData.billedtekst + ".webp";
           popup.style.display = "flex";
           popup.addEventListener("click", () => (popup.style.display = "none"));
         }
