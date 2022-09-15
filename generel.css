@@ -3,15 +3,17 @@ main {
   /* max-width: 1200px; */
 }
 html {
-  /* --primaer-graa: #f7f7f7; */
+  /* variabler fra farver */
   --primaer-roed: #6f1b1b;
   --highlight: #f2efe7;
+
   --h1-size: clamp(3.5rem, 1.25rem + 4vw, 4.5rem);
   --h2-size: clamp(0.5rem, 1.75rem + 1.3333vw, 2rem);
   --h3-size: clamp(2rem, 0.75rem + 1.3333vw, 2.3rem);
   --h4-size: clamp(1.3rem, 2rem + 0vw, 1rem);
   --p-size: clamp(1.2rem, 0.75rem + 1.3333vw, 1.1rem);
   --a-size: clamp(1rem, 0.75rem + 1.3333vw, 1.1rem);
+  /* variabler der definerer spacing mellem elementerne */
   --space-xs: 1rem;
   --space-s: 2rem;
   --space-m: 3rem;
@@ -170,6 +172,7 @@ section.active .filter_gone {
   border-radius: 5px;
 }
 
+/* footer */
 footer {
   display: flex;
   background-color: var(--highlight);
@@ -199,6 +202,7 @@ footer {
   }
 }
 
+/* burger menu under 750px */
 @media (max-width: 750px) {
   .hamburger {
     display: block;
