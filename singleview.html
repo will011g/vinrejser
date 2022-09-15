@@ -34,7 +34,14 @@
     <div class="tilbage_container">
       <button class="tilbage_knap">
         <svg class="tilbage_pil" width="20" height="20" viewBox="0 0 512 512">
-          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m268 112l144 144l-144 144m124-144H100" /></svg
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="48"
+            d="m268 112l144 144l-144 144m124-144H100"
+          /></svg
         >Tilbage
       </button>
     </div>
@@ -44,7 +51,13 @@
         <h2>Kort om området</h2>
         <p class="beskrivelse"></p>
       </article>
-      <article><img class="omraade_img_right" src="billeder/andalusien.webp" alt="Stemningsbillede med vin" /></article>
+      <article>
+        <img
+          class="omraade_img_right"
+          src="billeder/andalusien.webp"
+          alt="Stemningsbillede med vin"
+        />
+      </article>
       <article class="omraade_txt_left">
         <h2>Det byder rejsen på</h2>
         <p class="intro"></p>
@@ -106,10 +119,18 @@
     <footer>
       <div class="footer-block">
         <h2>Nyhedsbrev</h2>
-        <p>Tilmeld dig og vær blandt de første til at få nyt angående vores rejser.</p>
+        <p>
+          Tilmeld dig og vær blandt de første til at få nyt angående vores
+          rejser.
+        </p>
         <form>
-          <label for="E-mail adresse"></label><br />
-          <input placeholder="E-mail" type="email" name="E-mail" aria-label="E-mail adresse" style="height: 28px" />
+          <input
+            placeholder="E-mail"
+            type="email"
+            name="E-mail"
+            aria-label="E-mail adresse"
+            style="height: 28px"
+          />
           <input class="button" type="button" value="Tilmeld" />
         </form>
       </div>
@@ -170,15 +191,21 @@
 
       function visLand() {
         console.log(land);
-        document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
+        document.querySelector("img").src =
+          "billeder/" + land.billedtekst + ".webp";
 
         document.querySelector(".lande").textContent = land.områder;
         document.querySelector(".land").textContent = land.områder;
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
         document.querySelector(".intro").textContent = land.intro;
-        document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
-        document.querySelector("article").addEventListener("click", () => visLand(land));
-        document.querySelector(".tilbage_knap").addEventListener("click", goBack);
+        document.querySelector(".pris").textContent =
+          "Pris: " + land.pris + " kr.";
+        document
+          .querySelector("article")
+          .addEventListener("click", () => visLand(land));
+        document
+          .querySelector(".tilbage_knap")
+          .addEventListener("click", goBack);
       }
 
       function goBack() {
