@@ -274,6 +274,9 @@ footer {
     align-items: center;
     padding-inline-start: var(--space-xs);
   }
+  p {
+    padding-inline: var(--space-xs);
+  }
 
   section.active svg {
     transition: 0.3s;
