@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="singleview.css" />
     <link rel="stylesheet" href="generel.css" />
     <!-- Lande kommer ind som titel på hver enkelt singleview side -->
-    <title class="lande"></title>
+    <title class="lande">Velkommen til</title>
   </head>
   <body>
     <header>
@@ -32,44 +32,32 @@
     </header>
     <div class="land_overskrift_snglview"><h1 class="land"></h1></div>
     <div class="tilbage_container">
-      <button class="tilbage_knap"
-        >
-        <svg class="tilbage_pil"
-          width="20"
-          height="20"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="48"
-            d="m268 112l144 144l-144 144m124-144H100"
-          /></svg
-      >Tilbage</button>
+      <button class="tilbage_knap">
+        <svg class="tilbage_pil" width="20" height="20" viewBox="0 0 512 512">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m268 112l144 144l-144 144m124-144H100" /></svg
+        >Tilbage
+      </button>
     </div>
     <main>
-      <article><img class="omraade_img_left" src="" alt="" /></article>
+      <article><img class="omraade_img_left" src="" alt="Område" /></article>
       <article class="omraade_txt_right">
-        
         <h2>Kort om området</h2>
         <p class="beskrivelse"></p>
       </article>
-      <article><img class="omraade_img_right" src="billeder/andalusien.webp" alt="" /></article>
+      <article><img class="omraade_img_right" src="billeder/andalusien.webp" alt="Stemningsbillede med vin" /></article>
       <article class="omraade_txt_left">
-        
-        <h2>Det byder rejsen på</h>
+        <h2>Det byder rejsen på</h2>
         <p class="intro"></p>
       </article>
+
       <div class="pris_koeb">
         <p class="pris"></p>
         <div class="filter_knap">
-          <h3 class="pris"></h3></div>
-          <button class="bestil_knap" >Bestil rejse</button>
+          <h3 class="pris"></h3>
         </div>
-        
-    
+        <button class="bestil_knap">Bestil rejse</button>
+      </div>
+
       <div class="vinkort_1_container">
         <h2>Få en forsmag på hvilke vine der venter dig</h2>
         <section class="vinkort_1">
@@ -77,7 +65,7 @@
           <div class="farve">
             <div class="tekst">
               <h2>Vinflaske</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <div class="pris_knap">
               <p><strong>Pris: 399 kr.</strong></p>
@@ -85,53 +73,43 @@
             </div>
           </div>
         </section>
-        
 
-      <section class="vinkort_2">
-        <img class="vin_1" src="billeder/red_vin.png" alt="vinflaske" />
-        <div class="farve">
-          <div class="tekst">
-            <h2>Vinflaske</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <section class="vinkort_2">
+          <img class="vin_1" src="billeder/red_vin.png" alt="vinflaske" />
+          <div class="farve">
+            <div class="tekst">
+              <h2>Vinflaske</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="pris_knap">
+              <p><strong>Pris: 399 kr.</strong></p>
+              <button>Se mere</button>
+            </div>
           </div>
-          <div class="pris_knap">
-            <p><strong>Pris: 399 kr.</strong></p>
-            <button>Se mere</button>
+        </section>
+        <section class="vinkort_3">
+          <img class="vin_1" src="billeder/white_vin.png" alt="vinflaske" />
+          <div class="farve">
+            <div class="tekst">
+              <h2>Vinflaske</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="pris_knap">
+              <p><strong>Pris: 399 kr.</strong></p>
+              <button>Se mere</button>
+            </div>
           </div>
-        </div>
-      </section>
-      <section class="vinkort_3">
-        <img class="vin_1" src="billeder/white_vin.png" alt="vinflaske" />
-        <div class="farve">
-          <div class="tekst">
-            <h2>Vinflaske</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
-          <div class="pris_knap">
-            <p><strong>Pris: 399 kr.</strong></p>
-            <button>Se mere</button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
+        </section>
+      </div>
+    </main>
 
- <footer>
+    <footer>
       <div class="footer-block">
         <h2>Nyhedsbrev</h2>
-        <p>
-          Tilmeld dig og vær blandt de første til at få nyt angående vores
-          rejser.
-        </p>
+        <p>Tilmeld dig og vær blandt de første til at få nyt angående vores rejser.</p>
         <form>
           <label for="E-mail adresse"></label><br />
-          <input
-            placeholder="E-mail"
-            type="email"
-            name="E-mail"
-            aria-label="E-mail adresse"
-            style="height: 28px"
-          />
+          <input placeholder="E-mail" type="email" name="E-mail" aria-label="E-mail adresse" style="height: 28px" />
           <input class="button" type="button" value="Tilmeld" />
         </form>
       </div>
@@ -167,8 +145,6 @@
         </div>
       </div>
     </footer>
-</body>
-</html>
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get("id");
@@ -195,7 +171,7 @@
       function visLand() {
         console.log(land);
         document.querySelector("img").src = "billeder/" + land.billedtekst + ".webp";
-        <!-- Henter samme info om land til to forskellige klasser, så det fremgår som titel og h1 -->
+
         document.querySelector(".lande").textContent = land.områder;
         document.querySelector(".land").textContent = land.områder;
         document.querySelector(".beskrivelse").textContent = land.beskrivelse;
@@ -204,12 +180,11 @@
         document.querySelector("article").addEventListener("click", () => visLand(land));
         document.querySelector(".tilbage_knap").addEventListener("click", goBack);
       }
-<!-- Kører tilbage funktion på tilbage knap -->
+
       function goBack() {
         history.back();
       }
 
-    
       hentData();
     </script>
     <script src="burger.js"></script>

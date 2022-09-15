@@ -18,11 +18,13 @@ main {
   grid-auto-flow: dense;
 }
 
+/* Tager alle ulige børn under article */
 article:nth-child(odd) {
   grid-column: 1 / 4;
   margin-block-end: 2rem;
 }
 
+/* Tager alle lige børn under article */
 article:nth-child(even) {
   background-color: var(--primaer-graa);
   grid-column: 4 / 7;
@@ -31,10 +33,12 @@ article:nth-child(even) {
   padding-inline: 1rem;
   margin-block-end: 2.35rem;
 }
-
+/* Placerer hver 3 bar */
 article:nth-child(4n - 1) {
   grid-column: 4 / 7;
 }
+
+/* Placerer hver 4 barn */
 article:nth-child(4n) {
   grid-column: 1 / 4;
   padding-inline: 1rem;

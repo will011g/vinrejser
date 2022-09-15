@@ -42,7 +42,7 @@
         <h2>Nyhedsbrev</h2>
         <p>Tilmeld dig og vær blandt de første til at få nyt angående vores rejser.</p>
         <form>
-          <label for="E-mail adresse"></label><br />
+          <label for="E-mail-adresse"></label>
           <input placeholder="E-mail" type="email" name="E-mail" aria-label="E-mail adresse" style="height: 28px" />
           <input class="button" type="button" value="Tilmeld" />
         </form>
@@ -80,20 +80,20 @@
       </div>
     </footer>
 
+    <script>
+      document.getElementById("hover").addEventListener("mouseover", mouseOver);
+      document.getElementById("hover").addEventListener("mouseout", mouseOut);
+
+      function mouseOver() {
+        document.getElementById("blur").style.webkitFilter = "blur(3px)";
+        document.getElementById("blur").style.webkitTransition = "0.5s";
+      }
+      function mouseOut() {
+        document.getElementById("blur").style.webkitFilter = "blur(0px)";
+        document.getElementById("blur").style.webkitTransition = "0.5s";
+      }
+    </script>
+
     <script src="burger.js"></script>
   </body>
 </html>
-
-<script>
-  document.getElementById("hover").addEventListener("mouseover", mouseOver);
-  document.getElementById("hover").addEventListener("mouseout", mouseOut);
-
-  function mouseOver() {
-    document.getElementById("blur").style.webkitFilter = "blur(3px)";
-    document.getElementById("blur").style.webkitTransition = "0.5s";
-  }
-  function mouseOut() {
-    document.getElementById("blur").style.webkitFilter = "blur(0px)";
-    document.getElementById("blur").style.webkitTransition = "0.5s";
-  }
-</script>
