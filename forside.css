@@ -105,6 +105,8 @@ section.active .filter_gone {
 .mail {
   display: flex;
 }
+*/
+
 .button {
   width: 5rem;
   height: 2rem;
@@ -112,7 +114,7 @@ section.active .filter_gone {
   background-color: #670505;
   color: white;
   border-radius: 5px;
-} */
+}
 
 .bar {
   display: block;
