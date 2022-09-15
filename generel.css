@@ -138,6 +138,7 @@ a {
   display: none;
   cursor: pointer;
   padding-block: 1rem;
+  margin-inline-start: var(--space-xs);
 }
 
 section.active .filter_gone {
@@ -145,6 +146,7 @@ section.active .filter_gone {
   border-style: solid;
   border-width: 2px;
   border-color: var(--primaer-roed);
+  margin-inline-start: var(--space-xs);
 }
 
 .valgt {
