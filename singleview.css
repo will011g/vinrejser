@@ -171,13 +171,22 @@ article:nth-child(4n) {
 }
 
 button {
+  transition: 0.3s;
   cursor: pointer;
   border-radius: 5px;
-  padding-block: 1rem;
-  padding-inline: 2rem;
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-xs);
   color: white;
   background-color: #6f1b1b;
   border-style: none;
+  font-family: "brandon-grotesque";
+  font-size: var(--p-size);
+}
+
+button:hover {
+  transition: 0.3s;
+  background-color: var(--primaer-roed);
+  color: white;
 }
 
 .tekst {

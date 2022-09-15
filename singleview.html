@@ -29,7 +29,7 @@
       </nav>
     </header>
     <div class="land_overskrift_snglview"><h1 class="lande"></h1></div>
-    <div>
+    <div class="tilbage_container">
       <button class="tilbage_knap"
         >
         <svg class="tilbage_pil"
@@ -199,12 +199,14 @@
         document.querySelector(".intro").textContent = land.intro;
         document.querySelector(".pris").textContent = "Pris: " + land.pris + " kr.";
         document.querySelector("article").addEventListener("click", () => visLand(land));
+        document.querySelector(".tilbage_knap").addEventListener("click", goBack);
       }
 
       function goBack() {
         history.back();
       }
 
+    
       hentData();
     </script>
     <script src="burger.js"></script>

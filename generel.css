@@ -44,6 +44,7 @@ h3 {
   font-style: normal;
   font-weight: 300;
   font-stretch: normal;
+  font-family: "garamond-premier-pro", serif;
 }
 
 p {
@@ -202,11 +203,19 @@ footer {
   }
 }
 
+.tilbage_container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 .tilbage_pil {
   transform: rotate(180deg);
+  padding-inline-start: var(--space-xs);
 }
 
 .tilbage_knap {
+  margin-block-end: var(--space-s);
+  margin-inline-start: var(--space-xs);
   justify-content: space-evenly;
   display: flex;
   justify-content: center;
